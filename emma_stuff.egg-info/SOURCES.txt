@@ -1,6 +1,0 @@
-setup.py
-emma_stuff.egg-info/PKG-INFO
-emma_stuff.egg-info/SOURCES.txt
-emma_stuff.egg-info/dependency_links.txt
-emma_stuff.egg-info/requires.txt
-emma_stuff.egg-info/top_level.txt
