@@ -36,7 +36,7 @@ def check_urls(url_list):
 def main():
     """Main"""
     parser = argparse.ArgumentParser(
-        add_help=True, description="Parse a comma separated string of URLs and " \
+        add_help=True, description="Parse a comma separated string of URLs and " +
             "return those that fail",
         formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument(
