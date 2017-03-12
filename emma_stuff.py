@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Accepts a comma separated string of fully qualified URLs and returns a subset of those that are
+Accepts a comma separated string of fully qualified URLs and prints out a subset of those that are
 incorrect along with the error code.
 """
 from __future__ import unicode_literals
@@ -26,7 +26,7 @@ def check_urls(url_list):
         try:
             response = requests.get(url)
         except requests.exceptions.HTTPError, exc:
-            bad_urls.append("An error occurred try to access the following URL: %s" % (url))
+            bad_urls.append("An error occurred trying to access the following URL: %s" % (url))
         if response.status_code >= 300:
             bad_urls.append("Unable to reach: %s an HTTP status code of %s was returned" %
                     (url, response.status_code))
@@ -36,7 +36,7 @@ def check_urls(url_list):
 def main():
     """Main"""
     parser = argparse.ArgumentParser(
-        add_help=False, description="Parse a comma separated list of URLs and " \
+        add_help=True, description="Parse a comma separated list of URLs and " \
             "return those that fail",
         formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument(
@@ -45,7 +45,9 @@ def main():
     args, _ = parser.parse_known_args()
 
     print("Validating URLs...")
-    responses = check_urls(args.urls)
+    responses = check_urls(args.urls.split(','))
+    for response in responses:
+        print response
 
 if __name__ == '__main__':
     main()

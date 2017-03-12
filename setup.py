@@ -18,7 +18,7 @@ setup(
     author='Nick Guidoux',
     packages=find_packages(),
     include_package_data=True,
-    install_requires = install_requires,
+    install_requires = install_requires + tests_require, # just to easily run tests
     tests_require = tests_require,
 )
 
